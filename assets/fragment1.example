@@ -1,0 +1,6 @@
+const multipleThings = () => {
+  return (
+    <div>Hello</div>
+    <div>World</div>
+  )
+}

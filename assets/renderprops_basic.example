@@ -1,0 +1,52 @@
+class Header extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {name: "reactfoo"}
+  }
+
+  render(){
+    const { children, left, right, isLoggedIn, handleLogIn } = this.props;
+
+    return(
+      <div>
+        <div>
+          user is
+          {isLoggedIn? 'logged': 'not logged'}
+        </div>
+        <button onClick={handleLogIn} >Toggle log in state</button>
+        <div> {left()} </div>
+        <div> {children()} </div>
+        <div> {right(this.state.name)} </div>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {isLoggedIn: true}
+    this.handleLogIn = this.handleLogIn.bind(this)
+  }
+  handleLogIn () {
+    this.setState(({isLoggedIn}) => ({
+      isLoggedIn: !isLoggedIn
+    }))
+  }
+  render() {
+    return (
+      <div>
+        <Header 
+          isLoggedIn={this.state.isLoggedIn}
+          handleLogIn={this.handleLogIn}
+          right={(name) => <div> Right {name} </div>}
+          left={() => <div> Left </div>} 
+        >
+          {() => <div> The middle right here </div>}
+        </Header>
+      </div>
+    )
+  }
+};
+
+render(<App />);

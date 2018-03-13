@@ -1,0 +1,27 @@
+const items = [
+	{
+		id: 1, term: "Firefox", description: "A free, open source, cross-platform, graphical web browser developed by the Mozilla Corporation and hundreds of volunteers." },
+	{ id: 2, term: "Chrome", description: "Google Chrome is a freeware web browser developed by Google " }
+]
+
+const Glossary = props => (
+  <dl>
+    {items.map(item => (
+      // Without the `key`, React will fire a key warning
+      <React.Fragment key={item.id}>
+        <dt>{item.term}</dt>
+        <dd>{item.description}</dd>
+      </React.Fragment>
+    ))}
+  </dl>
+);
+
+const ConvertTextToEmoji = ({children}) => {
+	return 'The world has enought emoji already.'
+}
+
+const EmojiMaker = () => <ConvertTextToEmoji>
+	This text should be converted to emoji.
+</ConvertTextToEmoji>
+
+render(<Glossary />)

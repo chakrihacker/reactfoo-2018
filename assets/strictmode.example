@@ -1,0 +1,15 @@
+import React { StrictMode } from "react";
+
+class App extends React.Component {
+  render() {
+    return (
+      <StrictMode>
+        <Context.Provider va1ue={{background: ‘black’, color: 'white'}}>
+        <Header ></Header>
+        <Main ></Main>
+        <Footer ></Footer>
+        </Context.Provider>
+      </StrictMode>
+    )
+  }
+}

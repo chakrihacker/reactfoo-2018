@@ -1,0 +1,51 @@
+const styles = {
+  container: {
+    height: 300,
+    border: "solid red"
+  }
+};
+
+class Mouse extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { x: 0, y: 0, message: "HELLLO" };
+    this.handleMouseMove = this.handleMouseMove.bind(this)
+  }
+
+  handleMouseMove (event) {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  };
+
+  render() {
+    return (
+      <div onMouseMove={this.handleMouseMove} style={styles.container}>
+        {/* {this.props.render(this.state)} */}
+        x is: {this.state.x} and y is {this.state.y}
+      </div>
+    );
+  }
+}
+
+const App = () => (
+  <Fragment>
+    <Mouse
+      render={({ x, y, message }) => (
+        <h2 style={myStyle}>
+          The mouse position is 👉 ({x}, {y})
+        </h2>
+      )}
+    />
+  </Fragment>
+)
+
+
+const myStyle = {
+  border: "2px solid green",
+  height: "300px",
+  margin: 0
+};
+
+render(App)

@@ -1,0 +1,9 @@
+const App = () => (
+  <div>
+    <h1>This is our App</h1>
+    
+    <ErrorBoundary>
+      <GalleryWidget />
+    </ErrorBoundary>
+  </div>
+)

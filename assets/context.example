@@ -1,0 +1,61 @@
+const ThemeContext = React.createContext();
+
+const ThemeConsumer = ThemeContext.Consumer;
+
+class ThemeProvider extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { background: "black", color: "white" };
+    this.toggleTheme = this.toggleTheme.bind(this)
+  }
+  toggleTheme () {
+    this.setState(state => ({
+      background: state.background === "black" ? "white" : "black",
+      color: state.color === "white" ? "black" : "white"
+    }));
+  };
+  render() {
+    return (
+      <ThemeContext.Provider
+        value={{ ...this.state, toggleTheme: this.toggleTheme }}
+      >
+        {this.props.children}
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+class UsefulComponent extends Component {
+  render() {
+    return (
+      <div>
+        <AnotherComponent />
+      </div>
+    );
+  }
+}
+
+class AnotherComponent extends Component {
+  render() {
+    return (
+      <ThemeConsumer>
+        {({ background, color, toggleTheme }) => (
+          <React.Fragment>
+            <div style={{ background, color }}>
+              <h1>Hello ReactFoo</h1>
+              <button onClick={toggleTheme}>Toggle Theme</button>
+            </div>
+          </React.Fragment>
+        )}
+      </ThemeConsumer>
+    );
+  }
+}
+
+const App = () => (
+  <ThemeProvider>
+    <UsefulComponent />
+  </ThemeProvider>
+)
+
+render(App)

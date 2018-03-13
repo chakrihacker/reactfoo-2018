@@ -1,0 +1,9 @@
+static getDerivedStateFromProps (nextProps, prevState) {
+  if(nextProps.counter === prevState.counter) {
+    return null;
+  }
+  
+  return { 
+    counter: nextProps.counter 
+  };
+}

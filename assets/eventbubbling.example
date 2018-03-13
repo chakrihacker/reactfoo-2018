@@ -1,0 +1,39 @@
+const portalContainer = document.getElementById('another-root');
+
+class HelloFromPortal extends React.Component {
+  render() {
+    return (
+      <h1 onClick={() => alert("clicked")} >I am rendered through a Portal.</h1>
+    );
+  }
+}
+
+class HelloReact extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      clicks: 0
+    }
+    this.onClick = this.onClick.bind(this)
+  }
+  onClick () {
+    // This will fire when the button in Child is clicked, even though
+    // button is not a direct descendant in the DOM.
+    this.setState(state => ({ clicks: state.clicks + 1 }));
+  };
+  render() {
+    return (
+      <div onClick={this.onClick}>
+        <h1>Hello World</h1>
+        {ReactDOM.createPortal(<HelloFromPortal />, portalContainer)}
+        <p>Number of clicks: {this.state.clicks}</p>
+        <p>
+          Open up the browser DevTools to observe that the button is not a child
+          of the div with the onClick handler.
+        </p>
+      </div>
+    );
+  }
+}
+
+render(<HelloReact />);

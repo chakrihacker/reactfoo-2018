@@ -1,0 +1,64 @@
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0
+    };
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick () {
+    this.setState(prevState => ({
+      counter: ++prevState.counter
+    }));
+  }
+
+  render () { 
+    return (
+      <div>
+        <p>The counter in App is {this.state.counter}</p>
+        <p>
+          The button below will increase the counter in both Parent as well as in
+          Child.
+        </p>
+        <button onClick={this.handleClick}>Press me!</button>
+        <Child {...this.state} />
+      </div>
+    )
+  }
+}
+
+class Child extends React.Component {
+  static getDerivedStateFromProps (nextProps, prevState) {
+    return nextProps.counter === prevState.counter
+      ? null
+      : { counter: nextProps.counter };
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: this.props.counter,
+      message: "Hello"
+    };
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick () {
+    this.setState(prevState => ({
+      counter: ++prevState.counter
+    }));
+  }
+
+  render () { 
+    return (
+      <div>
+        <p>The counter in MyComponent is {this.state.counter}</p>
+        <p>The button will increase the counter only inside Child.</p>
+        <button onClick={this.handleClick}>Press me!</button>
+      </div>
+    )
+  }
+}
+
+render(Parent)

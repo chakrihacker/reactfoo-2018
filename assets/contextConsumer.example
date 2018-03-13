@@ -1,0 +1,11 @@
+const Header = () => (
+ <ThemeContext.Consumer>
+   {({ background, color }) => {
+     return (
+       <div style={{ background, color }}>
+         React Foo!
+       </div>
+     );
+   }}
+ </ThemeContext.Consumer>
+);

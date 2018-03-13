@@ -1,0 +1,13 @@
+class Application extends React.Component {
+ render() {
+   return (
+     <ThemeContext.Provider 
+value={{ background: "black", color: "white" }}
+  >
+       <Header />
+       <Main />
+       <Footer />
+     </ThemeContext.Provider>
+   )
+ }
+}
