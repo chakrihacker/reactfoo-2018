@@ -1,9 +1,9 @@
-const App = () => (
+const MillionDollarApp = () => (
   <div>
     <h1>This is our App</h1>
     
     <ErrorBoundary>
-      <GalleryWidget />
+      <BetaFeature />
     </ErrorBoundary>
   </div>
 )

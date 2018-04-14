@@ -34,7 +34,7 @@ const App = () => (
     <Mouse
       render={({ x, y, message }) => (
         <h2 style={myStyle}>
-          The mouse position is 👉 ({x}, {y})
+          The mouse position is ({x}, {y})
         </h2>
       )}
     />

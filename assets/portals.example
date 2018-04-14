@@ -3,27 +3,9 @@
   <div id="another-root"></div>
 </body>
 
-// index.jsx
-const mainContainer = document.getElementById('root');
-const portalContainer = document.getElementById('another-root');
-
-class HelloFromPortal extends React.Component {
-  render() {
-    return (
-      <h1>I am rendered through a Portal.</h1>
-    );
-  }
+const Modal = ({children}) => {
+  return ReactDOM.createPortal(
+    children,
+    document.getElementById('another-root')
+  )
 }
-
-class HelloReact extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello World</h1>
-        {ReactDOM.createPortal(<HelloFromPortal />, portalContainer)}
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<HelloReact />, mainContainer);

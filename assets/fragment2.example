@@ -30,3 +30,7 @@ const ListItems = () => {
     <li>World</li>
   </>
 }
+
+render() {
+  return 'Look ma, no spans!';
+}

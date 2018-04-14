@@ -1,14 +1,13 @@
 const items = [
-	{
-		id: 1, term: "Firefox", description: "A free, open source, cross-platform, graphical web browser developed by the Mozilla Corporation and hundreds of volunteers." },
-	{ id: 2, term: "Chrome", description: "Google Chrome is a freeware web browser developed by Google " }
+	{ term: "Firefox", description: "A free, open source, cross-platform, graphical web browser developed by the Mozilla Corporation and hundreds of volunteers." },
+	{ term: "Chrome", description: "Google Chrome is a freeware web browser developed by Google " }
 ]
 
-const Glossary = props => (
+const Glossary = () => (
   <dl>
-    {items.map(item => (
+    {items.map((item, index) => (
       // Without the `key`, React will fire a key warning
-      <React.Fragment key={item.id}>
+      <React.Fragment key={index}>
         <dt>{item.term}</dt>
         <dd>{item.description}</dd>
       </React.Fragment>

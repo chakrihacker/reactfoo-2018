@@ -3,7 +3,7 @@ const portalContainer = document.getElementById('another-root');
 class HelloFromPortal extends React.Component {
   render() {
     return (
-      <h1 onClick={() => alert("clicked")} >I am rendered through a Portal.</h1>
+      <h1>I am rendered through a Portal.</h1>
     );
   }
 }

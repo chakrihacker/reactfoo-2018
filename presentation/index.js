@@ -21,10 +21,12 @@ import {
   Markdown,
   Typeface,
   Layout,
-  Magic
+  Magic,
+  S
 } from "spectacle";
+import Loading from "../Components/Loading";
+import Me from "../Components/Me";
 import CodeSlide from "spectacle-code-slide";
-import ImageSlide from "spectacle-image-slide";
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -57,7 +59,7 @@ const code = {
 };
 
 const images = {
-  chakri: require("../assets/chakri.jpg"),
+  chakri: require("../assets/chakrii.jpg"),
   reactLogo: require("../assets/react-hexagon.png"),
   errorBoundary: require("../assets/error_boundaries.jpg"),
   portals: require("../assets/portal.jpg"),
@@ -70,7 +72,10 @@ const images = {
   smart: require("../assets/smart.gif"),
   wow3: require("../assets/wow3.gif"),
   skull: require("../assets/skull.png"),
-  basic: require("../assets/basic.png")
+  basic: require("../assets/basic.png"),
+  mouse: require("../assets/mouse.gif"),
+  props: require("../assets/props.png"),
+  context: require("../assets/context.png")
 };
 
 const styles = {
@@ -111,7 +116,76 @@ export default class Presentation extends React.Component {
         theme={theme}
         progress="bar"
       >
-        <Slide bgImage={images.chakri} bgDarken={0.3} transition={["fade"]}>
+        <Slide bgColor="black" transition={["fade"]}>
+          <Loading />
+        </Slide>
+        <Slide bgColor="black" transition={["fade"]} textColor={"white"}>
+          <Heading textColor="primary" size={5}>
+            Chakravarthy <span style={{ color: "yellow" }}>{"👋"}</span>
+          </Heading>
+          <Layout>
+            <Image
+              src={images.chakri}
+              style={{ margin: "0.5rem auto" }}
+              width={300}
+              height={300}
+            />
+            <div>
+              <div>
+                <List textColor={"white"}>
+                  <ListItem
+                    style={{
+                      listStyleType: "none",
+                      margin: 10,
+                      paddingLeft: 30
+                    }}
+                  >
+                    * RN Dev at platify
+                  </ListItem>
+                  <ListItem
+                    style={{
+                      listStyleType: "none",
+                      margin: 10,
+                      paddingLeft: 30
+                    }}
+                  >
+                    * Always bet on JavaScript
+                  </ListItem>
+                  <ListItem
+                    style={{
+                      listStyleType: "none",
+                      margin: 10,
+                      paddingLeft: 30
+                    }}
+                  >
+                    * FreeCodeCamp, React
+                  </ListItem>
+                  <ListItem
+                    style={{
+                      listStyleType: "none",
+                      margin: 10,
+                      paddingLeft: 30
+                    }}
+                  >
+                    * React Native, GraphQL
+                  </ListItem>
+                  <ListItem
+                    style={{
+                      listStyleType: "none",
+                      margin: 10,
+                      paddingLeft: 30,
+                      color: "red"
+                    }}
+                  >
+                    @chakrihacker
+                  </ListItem>
+                </List>
+              </div>
+            </div>
+          </Layout>
+          <Me />
+        </Slide>
+        {/* <Slide bgImage={images.chakri} bgDarken={0.3} transition={["fade"]}>
           <Heading textColor="primary" size={3}>
             Hi I am
           </Heading>
@@ -120,7 +194,7 @@ export default class Presentation extends React.Component {
           </Heading>
           <Heading textColor="primary"> &middot; &middot; &middot; </Heading>
           <Heading textColor="primary"> @chakrihacker </Heading>
-        </Slide>
+        </Slide> */}
         <Slide bgColor="black" transition={["fade"]}>
           <Image src={images.reactLogo} width={300} />
           <Heading
@@ -155,6 +229,9 @@ export default class Presentation extends React.Component {
               <ListItem textColor="primary"> Portals </ListItem>
             </Appear>
             <Appear>
+              <ListItem textColor="primary">Refs</ListItem>
+            </Appear>
+            <Appear>
               <ListItem textColor="primary"> Context API </ListItem>
             </Appear>
             <Appear>
@@ -172,10 +249,10 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide bgColor="black">
-          <Heading textColor="white" textAlign="center" margin="30">
+          <Text textColor="white" textAlign="center" margin="30">
             Understand how JSX compilation works
-          </Heading>
-          <Image src={images.basic} />
+          </Text>
+          <Image src={images.basic} width="30em" />
         </Slide>
         <Slide bgColor="black">
           <Heading textColor="white" textAlign="center" margin="30">
@@ -208,6 +285,10 @@ export default class Presentation extends React.Component {
             {
               loc: [26, 32],
               title: "JSX Fragment syntax"
+            },
+            {
+              loc: [33, 36],
+              title: "Strings"
             }
           ]}
         />
@@ -243,7 +324,10 @@ export default class Presentation extends React.Component {
           <Slide bgImage={images.smart} bgDarken="0.5">
             <Text textColor="white"> Method #2</Text>
             <Text bold textColor="white">
-              Don 't open the console, and you won' t see errors
+              Don't open the console,
+            </Text>
+            <Text bold textColor="white">
+              and you won't see errors
             </Text>
           </Slide>
           <Slide bgImage={images.smart} bgDarken="0.5">
@@ -312,7 +396,8 @@ export default class Presentation extends React.Component {
           ranges={[
             {
               loc: [0, 4]
-            }
+            },
+            { loc: [5, 11] }
           ]}
         />
         <Slide bgColor="black">
@@ -337,9 +422,6 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
         <Slide bgColor="black">
-          <Heading textColor="gold"> Event Bubbling </Heading>
-        </Slide>
-        <Slide bgColor="black">
           <ComponentPlayground
             code={code.eventbubbling}
             scope={{
@@ -349,8 +431,26 @@ export default class Presentation extends React.Component {
             }}
           />
         </Slide>
-        <Slide bgColor="black">
-          <Heading textColor="lightseagreen"> Render props </Heading>
+        <Slide bgColor="black" textColor="white">
+          <Heading textColor="white">New Refs API</Heading>
+        </Slide>
+        <Slide bgColor="black" textColor="white">
+          <Heading textColor="white">Refs timeline</Heading>
+          <Appear>
+            <List>
+              <ListItem>Legacy String Refs</ListItem>
+              <ListItem>Newer Callback Refs</ListItem>
+              <ListItem>Amazing Refs</ListItem>
+              <ListItem>Super amazing forwaredRef API</ListItem>
+            </List>
+          </Appear>
+        </Slide>
+        <Slide bgColor="black" textColor="white">
+          <Heading textColor="white"> Render props </Heading>
+          <Text textColor="white">
+            The term “render prop” refers to a simple technique for sharing code
+            between React components using a prop whose value is a function.
+          </Text>
         </Slide>
         <Slide bgColor="lightseagreen">
           <ComponentPlayground
@@ -359,6 +459,9 @@ export default class Presentation extends React.Component {
               React
             }}
           />
+        </Slide>
+        <Slide bgColor="lightseagreen">
+          <Image src={images.mouse} />
         </Slide>
         <CodeSlide
           transition={["fade"]}
@@ -390,6 +493,12 @@ export default class Presentation extends React.Component {
             New Context API
           </Heading>
           <Image src={images.wow3} />
+        </Slide>
+        <Slide bgColor="slateblue">
+          <Image src={images.props} />
+        </Slide>
+        <Slide bgColor="slateblue">
+          <Image src={images.context} />
         </Slide>
         <Slide bgColor="slateblue">
           <CodePane lang="jsx" source={code.basicContext} textSize="30" />
@@ -506,13 +615,24 @@ export default class Presentation extends React.Component {
           <Heading textColor="white" margin="30">
             Migration
           </Heading>
-          <Code textSize="30" textColor="white">
-            jscodeshift - t & lt; codemod - script & gt; & lt; path & gt;
-          </Code>
-        </Slide>
-        <Slide bgColor="black">
-          <Heading textColor="red"> Questions </Heading>
-          <Image src={images.question} width="300" />
+          <Appear>
+            <Code textSize="30" textColor="white">
+              yarn global add jscodeshift
+            </Code>
+          </Appear>
+          <Appear>
+            <Text textColor="white">Clone react-codemod repo</Text>
+          </Appear>
+          <Appear>
+            <Text textColor="white">
+              yarn install in react-codemod directory
+            </Text>
+          </Appear>
+          <Appear>
+            <Code textSize="30" textColor="white">
+              jscodeshift -t &lt;codemod-script&gt; &lt;path&gt;
+            </Code>
+          </Appear>
         </Slide>
         <Slide bgColor="black" textColor="white">
           <Heading textColor="white"> Future of React </Heading>
@@ -525,57 +645,10 @@ export default class Presentation extends React.Component {
             <ListItem> Async Rendering </ListItem>
           </List>
         </Slide>
-        {/* <Slide>
-                  <Interactive />
-                </Slide>
-                <Slide transition={["zoom"]} bgColor="primary">
-                  <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-                    Spectacle Boilerplate
-                  </Heading>
-                  <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-                    open the presentation/index.js file to get started
-                  </Text>
-                </Slide>
-                <Slide transition={["fade"]} bgColor="tertiary">
-                  <Heading size={6} textColor="primary" caps>
-                    Typography
-                  </Heading>
-                  <Heading size={1} textColor="secondary">
-                    Heading 1
-                  </Heading>
-                  <Heading size={2} textColor="secondary">
-                    Heading 2
-                  </Heading>
-                  <Heading size={3} textColor="secondary">
-                    Heading 3
-                  </Heading>
-                  <Heading size={4} textColor="secondary">
-                    Heading 4
-                  </Heading>
-                  <Heading size={5} textColor="secondary">
-                    Heading 5
-                  </Heading>
-                  <Text size={6} textColor="secondary">
-                    Standard text
-                  </Text>
-                </Slide>
-                <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-                  <Heading size={6} textColor="secondary" caps>
-                    Standard List
-                  </Heading>
-                  <List>
-                    <ListItem>Item 1</ListItem>
-                    <ListItem>Item 2</ListItem>
-                    <ListItem>Item 3</ListItem>
-                    <ListItem>Item 4</ListItem>
-                  </List>
-                </Slide>
-                <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-                  <BlockQuote>
-                    <Quote>Example Quote</Quote>
-                    <Cite>Author</Cite>
-                  </BlockQuote>
-                </Slide> */}
+        <Slide bgColor="black">
+          <Heading textColor="red"> Questions </Heading>
+          <Image src={images.question} width="300" />
+        </Slide>
       </Deck>
     );
   }

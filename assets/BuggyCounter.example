@@ -1,4 +1,4 @@
-class BuggyCounter extends React.Component {
+class BetaFeature extends React.Component {
   constructor(props) {
     super(props);
     this.state = { counter: 0 };
@@ -20,14 +20,14 @@ class BuggyCounter extends React.Component {
   }
 }
 
-const App = () => (
+const MillionDollarApp = () => (
   <ErrorBoundary>
     Header
     Some Content
-    <BuggyCounter />
+    <BetaFeature />
     More Content
     Footer
   </ErrorBoundary>
 )
 
-render(App)
+render(MillionDollarApp)
