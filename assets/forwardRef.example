@@ -1,0 +1,52 @@
+function logProps(WrappedComponent) {
+  class LogProps extends React.Component {
+    componentDidUpdate(prevProps) {
+      console.log('old props:', prevProps);
+      console.log('new props:', this.props);
+    }
+
+    render() {
+      const {forwardedRef, ...rest} = this.props;
+      return <WrappedComponent ref={forwardedRef} {...rest} />;
+    }
+  }
+
+  return React.forwardRef((props, ref) => {
+    return <LogProps {...props} forwardedRef={ref} />;
+  });
+}
+
+const FancyInput = () => (
+  <input
+    type={"text"}
+    ref={ref}
+    placeholder={"Enter Name"}
+  />
+)
+
+const FancyInputLogs = logProps(FancyInput)
+const ref = React.createRef();
+
+class ForwardRef extends Component {
+  render() {
+    return (
+      <Fragment>
+      <FancyInputLogs ref={ref} />
+      <div>
+        <input
+          type="button"
+          onClick={() => ref.current.focus()}
+          value={"Focus"}
+        />
+        <input
+          type="button"
+          onClick={() => ref.current.value = ""}
+          value={"Clear"}
+        />
+      </div>
+      </Fragment>
+    )
+  }
+}
+
+render(ForwardRef)

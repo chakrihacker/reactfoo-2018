@@ -4468,10 +4468,6 @@ normalize.css@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
 
-normalize.css@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
-
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -5290,9 +5286,9 @@ react-deep-force-update@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.1.1.tgz#8ea4263cd6455a050b37445b3f08fd839d86e909"
 
-react-dom@^16.3.0-rc.0:
-  version "16.3.0-rc.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.0-rc.0.tgz#18282bcc98496197877b9365467362caf74b8e45"
+react-dom@^16.3.2:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -5368,9 +5364,9 @@ react-typography@^0.16.5:
   version "0.16.13"
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.13.tgz#94bdd2a9448823bc74d8ebf7465d86c7dbe20dcf"
 
-react@^16.3.0-rc.0:
-  version "16.3.0-rc.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.3.0-rc.0.tgz#07ddbe3ef14b910038576ef4afb29793d9e20f84"
+react@^16.3.2:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -6072,7 +6068,7 @@ spectacle-renderer@^0.0.3:
     puppeteer "^0.12.0"
     yargs "^9.0.1"
 
-spectacle@^4.0.0:
+spectacle@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/spectacle/-/spectacle-4.2.2.tgz#e519bb7a515309a738dc908cae69974a4b97f71c"
   dependencies:

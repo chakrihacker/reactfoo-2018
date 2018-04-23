@@ -1,0 +1,33 @@
+const FancyInput = React.forwardRef((props, ref) => (
+  <input
+    type={"text"}
+    ref={ref}
+    placeholder={"Enter Name"}
+  />
+))
+
+const ref = React.createRef();
+
+class ForwardRef extends Component {
+  render() {
+    return (
+      <Fragment>
+      <FancyInput ref={ref} />
+      <div>
+        <input
+          type="button"
+          onClick={() => ref.current.focus()}
+          value={"Focus"}
+        />
+        <input
+          type="button"
+          onClick={() => ref.current.value = ""}
+          value={"Clear"}
+        />
+      </div>
+      </Fragment>
+    )
+  }
+}
+
+render(ForwardRef)

@@ -1,0 +1,25 @@
+.fruit-btn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  left: 40px;
+  border: 5px solid black;
+  background-color: white;
+  color: black;
+  padding: 15px;
+  margin: 15px;
+}
+
+.fruit-btn:hover {
+  border: 5px solid black;
+  background-color: black;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.fruit {
+  margin: 200px 0;
+  font-size: 40px;
+}

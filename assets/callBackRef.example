@@ -1,0 +1,27 @@
+class CallBackRef extends Component {
+  render() {
+    return (
+      <div>
+        <input
+          type={'text'}
+          ref={el => this.name = el}
+          placeholder={"Enter Name"}
+        />
+      <div>
+        <input
+          type="button"
+          onClick={() => this.name.focus()}
+          value={"Focus"}
+        />
+        <input
+          type="button"
+          onClick={() => this.name.value = ""}
+          value={"Clear"}
+        />
+      </div>
+      </div>
+    )
+  }
+}
+
+render(CallBackRef)

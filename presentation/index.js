@@ -55,7 +55,13 @@ const code = {
   strictMode: require("raw-loader!../assets/strictmode.example"),
   errorboundaryUsage: require("raw-loader!../assets/errorboundaryUsage.example"),
   portals: require("raw-loader!../assets/portals.example"),
-  getDerivedStateFromPropsUsage: require("raw-loader!../assets/getDerivedStateFromPropsUsage.example")
+  getDerivedStateFromPropsUsage: require("raw-loader!../assets/getDerivedStateFromPropsUsage.example"),
+  stringRef: require("raw-loader!../assets/StringRef.example"),
+  callBackRef: require("raw-loader!../assets/callBackRef.example"),
+  objectRef: require("raw-loader!../assets/objectRef.example"),
+  forwardRefBasic: require("raw-loader!../assets/forwardRefBasic.example"),
+  forwardRef: require("raw-loader!../assets/forwardRef.example"),
+  getSnapShotBeforeUpdate: require("raw-loader!../assets/getSnapShotBeforeUpdate.example")
 };
 
 const images = {
@@ -91,6 +97,8 @@ const styles = {
 // Require CSS
 require("normalize.css");
 const MainStyle = require("../assets/main.css");
+const refStyle = require("../assets/refStyle.css");
+const snapshotStyle = require("../assets/snapshot.css");
 
 preloader(images);
 
@@ -445,6 +453,63 @@ export default class Presentation extends React.Component {
             </List>
           </Appear>
         </Slide>
+        <Slide bgColor="black">
+          <Heading textColor="red" size="3">String Ref</Heading>
+          <ComponentPlayground
+            code={code.stringRef}
+            scope={{
+              ReactDOM,
+              React,
+              refStyle
+            }}
+          />
+        </Slide>
+        <Slide bgColor="black">
+          <Heading textColor="red" size="3">Callback Ref</Heading>
+          <ComponentPlayground
+            code={code.callBackRef}
+            scope={{
+              ReactDOM,
+              React,
+              refStyle
+            }}
+          />
+        </Slide>
+        <Slide bgColor="black">
+          <Heading textColor="red" size="3">Object Ref</Heading>
+          <ComponentPlayground
+            code={code.objectRef}
+            scope={{
+              ReactDOM,
+              React,
+              refStyle
+            }}
+          />
+        </Slide>
+        <Slide bgColor="black">
+          <Heading textColor="red" size="3">Forward Ref Basic</Heading>
+          <ComponentPlayground
+            code={code.forwardRefBasic}
+            scope={{
+              ReactDOM,
+              React,
+              Fragment,
+              refStyle
+            }}
+          />
+        </Slide>
+        <Slide bgColor="black">
+          <Heading textColor="red" size="3">Forward Ref Basic</Heading>
+          <ComponentPlayground
+            code={code.forwardRef}
+            scope={{
+              ReactDOM,
+              React,
+              Fragment,
+              refStyle
+            }}
+          />
+        </Slide>
         <Slide bgColor="black" textColor="white">
           <Heading textColor="white"> Render props </Heading>
           <Text textColor="white">
@@ -579,6 +644,18 @@ export default class Presentation extends React.Component {
             }}
           />
         </Slide>
+        <Slide bgColor="black">
+          <Heading textColor="red" size="3">getSnapshotBeforeUpdate</Heading>
+          <ComponentPlayground
+            code={code.getSnapShotBeforeUpdate}
+            scope={{
+              ReactDOM,
+              React,
+              Fragment,
+              snapshotStyle
+            }}
+          />
+        </Slide>
         <Slide bgColor="black" textColor="white">
           <Heading textColor="white" size="3">
             Will be deprecated
@@ -635,14 +712,16 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide bgColor="black" textColor="white">
-          <Heading textColor="white"> Future of React </Heading>
-          <Heading textColor="white" size="3">
+          <Heading textColor="red"> Future of React </Heading>
+          <Heading textColor="red" size="3">
             The Conclusion
           </Heading>
           <List>
             <ListItem> Suspense </ListItem>
-            <ListItem> Simple Cache Provider </ListItem>
             <ListItem> Async Rendering </ListItem>
+            <ListItem> simple-cache-provider </ListItem>
+            <ListItem> call-return </ListItem>
+            <ListItem> create-subscription </ListItem>
           </List>
         </Slide>
         <Slide bgColor="black">

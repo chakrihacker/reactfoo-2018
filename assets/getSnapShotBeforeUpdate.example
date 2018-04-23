@@ -1,0 +1,54 @@
+class ScrollingList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fruitList: [
+        { id: 1, name: "🍎" },
+        { id: 2, name: "🍊" },
+        { id: 3, name: "🍌" },
+        { id: 4, name: "🍍" },
+        { id: 5, name: "🥝" }
+      ]
+    };
+    this.listRef = React.createRef();
+    this.onAddFruit = this.onAddFruit.bind(this);
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    if(prevState.fruitList.length !== this.state.fruitList.length) {
+      const list = this.listRef.current;
+      return list.scrollHeight - list.scrollTop;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if(snapshot !== null) {
+      const list = this.listRef.current;
+      list.scrollTop = list.scrollHeight - snapshot;
+    }
+  }
+
+  onAddFruit() {
+    let lastIndex = this.state.fruitList.length;
+
+    this.setState(prevState => ({
+      fruitList: [...prevState.fruitList, { id: (lastIndex += 1), name: "💩" }]
+    }));
+  };
+
+  render () {
+    return (
+      <Fragment>
+      <button onClick={this.onAddFruit} className="fruit-btn">
+          Add Shit
+        </button>
+      <div ref={this.listRef}>
+        {this.state.fruitList.map(item => <p className="fruit" key={item.id}>{item.name}</p>)}
+      </div>
+      </Fragment>
+    )
+  }
+}
+
+render(ScrollingList)

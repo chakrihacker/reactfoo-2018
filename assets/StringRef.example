@@ -1,0 +1,27 @@
+class StringRef extends Component {
+  render() {
+    return (
+      <div>
+        <input
+          type="text"
+          ref="name"
+          placeholder={"Enter Name"}
+        />
+        <div>
+        <input
+          type="button"
+          onClick={() => this.refs.name.focus()}
+          value={"Focus"}
+        />
+        <input
+          type="button"
+          onClick={() => this.refs.name.value = ""}
+          value={"Clear"}
+        />
+        </div>
+      </div>
+    )
+  }
+}
+
+render(StringRef)

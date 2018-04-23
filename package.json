@@ -14,11 +14,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "normalize.css": "^8.0.0",
-    "react": "^16.3.0-rc.0",
-    "react-dom": "^16.3.0-rc.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-pose": "^1.0.2",
-    "spectacle": "^4.0.0",
+    "spectacle": "^4.2.2",
     "spectacle-code-slide": "^0.5.2",
     "spectacle-image-slide": "^1.0.1",
     "spectacle-renderer": "^0.0.3"
