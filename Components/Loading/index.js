@@ -29,6 +29,11 @@ export default class Loading extends Component {
     });
     const synth = window.speechSynthesis;
     const msg = new SpeechSynthesisUtterance();
+    let voices = synth.getVoices();
+    console.log(voices);
+    msg.voice = voices[7];
+    msg.lang = "hi-En";
+    console.log(msg);
     const windowsMusic = new Audio(windowsAudio);
     windowsMusic.play();
     windowsMusic.addEventListener("ended", () => {
@@ -78,6 +83,18 @@ export default class Loading extends Component {
     recognition.maxAlternatives = 5;
 
     document.addEventListener("keydown", this.handleKeyDown, false);
+
+    const awaitVoices = new Promise(
+      done => (speechSynthesis.onvoiceschanged = done)
+    );
+    
+    awaitVoices.then(() => {
+      let voices = synth.getVoices();
+      console.log(voices);
+      msg.voice = voices[7];
+      msg.lang = "hi-En";
+      console.log(msg);
+    });
 
     recognition.onresult = function (event) {
       const spokenWords = event.results[0][0].transcript;

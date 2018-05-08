@@ -128,68 +128,33 @@ export default class Presentation extends React.Component {
           <Loading />
         </Slide>
         <Slide bgColor="black" transition={["fade"]} textColor={"white"}>
-          <Heading textColor="primary" size={5}>
+          <Heading textColor="red" size={2}>
             Chakravarthy <span style={{ color: "yellow" }}>{"👋"}</span>
           </Heading>
+          <Heading textColor="red" size={5} style={{paddingTop: 20}}>
+            <span style={{backgroundColor: "#fff", color: "#000"}}>@chakrihacker</span> on Twitter
+          </Heading>
           <Layout>
-            <Image
+            {/* <Image
               src={images.chakri}
               style={{ margin: "0.5rem auto" }}
               width={300}
               height={300}
-            />
-            <div>
-              <div>
-                <List textColor={"white"}>
-                  <ListItem
-                    style={{
-                      listStyleType: "none",
-                      margin: 10,
-                      paddingLeft: 30
-                    }}
-                  >
-                    * RN Dev at platify
-                  </ListItem>
-                  <ListItem
-                    style={{
-                      listStyleType: "none",
-                      margin: 10,
-                      paddingLeft: 30
-                    }}
-                  >
-                    * Always bet on JavaScript
-                  </ListItem>
-                  <ListItem
-                    style={{
-                      listStyleType: "none",
-                      margin: 10,
-                      paddingLeft: 30
-                    }}
-                  >
-                    * FreeCodeCamp, React
-                  </ListItem>
-                  <ListItem
-                    style={{
-                      listStyleType: "none",
-                      margin: 10,
-                      paddingLeft: 30
-                    }}
-                  >
-                    * React Native, GraphQL
-                  </ListItem>
-                  <ListItem
-                    style={{
-                      listStyleType: "none",
-                      margin: 10,
-                      paddingLeft: 30,
-                      color: "red"
-                    }}
-                  >
-                    @chakrihacker
-                  </ListItem>
-                </List>
-              </div>
-            </div>
+            /> */}
+            <List textColor={"white"}>
+              <ListItem>
+                React Native Dev at platify
+              </ListItem>
+              <ListItem>
+                Always bet on JavaScript
+              </ListItem>
+              <ListItem>
+                FreeCodeCamp, React
+              </ListItem>
+              <ListItem>
+                React Native, GraphQL
+              </ListItem>
+            </List>
           </Layout>
           <Me />
         </Slide>
