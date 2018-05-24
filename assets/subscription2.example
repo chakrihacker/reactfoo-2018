@@ -1,0 +1,3 @@
+<Subscription source={eventDispatcher or observable}>
+  {value => <AnotherComponent value={value} />}
+</Subscription>

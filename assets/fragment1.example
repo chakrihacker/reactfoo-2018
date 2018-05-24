@@ -1,6 +1,6 @@
 const multipleThings = () => {
   return (
-    <div>Hello</div>
-    <div>World</div>
+    <li>Hello</li>
+    <li>World</li>
   )
 }

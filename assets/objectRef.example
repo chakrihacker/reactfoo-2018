@@ -1,4 +1,4 @@
-class ObjectRef extends Component {
+class ObjectRef extends React.Component {
   constructor(props) {
     super(props)
     this.name = React.createRef();

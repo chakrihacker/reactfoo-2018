@@ -1,9 +1,14 @@
 const MillionDollarApp = () => (
   <div>
-    <h1>This is our App</h1>
-    
-    <ErrorBoundary>
-      <BetaFeature />
-    </ErrorBoundary>
+    <h1>Free App</h1>
+    <TrackUserPersona>
+      <Advertisment />
+
+      <ErrorBoundary>
+        <BetaFeature />
+      </ErrorBoundary>
+      
+      <Advertisment />
+    </TrackUserPersona>
   </div>
 )

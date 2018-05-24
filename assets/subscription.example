@@ -1,0 +1,28 @@
+const Subscription = createSubscription({
+  getCurrentValue: source => source.getValue(),
+  subscribe: (source, callback) => {
+    const subscription = source.subscribe(callback);
+    return () => subscription.unsubscribe;
+  },
+});
+
+function createBehaviorSubject(initialValue) {
+  const behaviorSubject = new BehaviorSubject();
+  if (initialValue) {
+    behaviorSubject.next(initialValue);
+  }
+  return behaviorSubject;
+}
+
+const observable = createBehaviorSubject("initial");
+
+const App = () => (
+  <div>
+    <Subscription source={observable}>
+      {newState => <h1>{newState}</h1>}
+    </Subscription>
+    <button onClick={() => observable.next(`${new Date()}`)}>change value</button>
+  </div>
+);
+
+render(<App />, document.getElementById("root"));

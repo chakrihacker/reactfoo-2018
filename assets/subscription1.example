@@ -1,0 +1,14 @@
+import { createSubscription } from "create-subscription";
+
+const Subscription = createSubscription({
+  getCurrentValue(source) {
+    // Return the current value of the subscription (source),
+    // or `undefined` if the value can't be read synchronously (e.g. native Promises).
+  },
+  subscribe(source, callback) {
+    // Subscribe (e.g. add an event listener) to the subscription (source).
+    // Call callback(newValue) whenever a subscription changes.
+    // Return an unsubscribe method,
+    // Or a no-op if unsubscribe is not supported (e.g. native Promises).
+  }
+});
